@@ -114,32 +114,32 @@
       to { transform: scale(1); opacity: 1; }
     }
 
+    /* Animated title (white-golden gradient) */
     .title {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(2rem, 5vw, 4rem);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-weight: 500;
+      background: linear-gradient(270deg, #ffffff, #ffd700, #fff8dc, #ffd700, #ffffff);
+      background-size: 600% 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite, titleGlow 2s ease-in-out infinite;
       margin-top: 60px;
       margin-bottom: 30px;
       line-height: 1.4;
-      animation: titleGlow 2s ease-in-out infinite;
       z-index: 20;
       position: relative;
     }
-    @keyframes titleGlow {
-      0%,100% { filter: drop-shadow(0 0 8px rgba(102,126,234,0.4)); }
-      50% { filter: drop-shadow(0 0 18px rgba(102,126,234,0.7)); }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .emoji-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      display: inline-block;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @keyframes titleGlow {
+      0%,100% { filter: drop-shadow(0 0 10px rgba(255,215,0,0.4)); }
+      50% { filter: drop-shadow(0 0 20px rgba(255,215,0,0.9)); }
     }
 
     .subtitle {
@@ -173,10 +173,10 @@
     }
 
     .event-details {
-      background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,215,0,0.1));
       border-radius: 20px;
       padding: clamp(20px, 4vw, 35px);
-      border: 2px solid rgba(102,126,234,0.2);
+      border: 2px solid rgba(255,215,0,0.2);
       margin: 30px 0;
     }
     .detail-item {
@@ -195,11 +195,6 @@
     @keyframes slideInLeft {
       from { transform: translateX(-50px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
-    }
-    .detail-icon {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      margin-right: 10px;
-      color: #667eea;
     }
     .detail-highlight { color: #ffde54; }
 
@@ -242,7 +237,7 @@
     <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" class="school-logo-left" alt="Left Logo">
     <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" class="school-logo-right" alt="Right Logo">
 
-    <div class="title">Farewell   Celebration</div>
+    <div class="title">Farewell Celebration</div>
     <div class="subtitle">🌟 Dear Seniors 🌟</div>
     <div class="divider"></div>
 
@@ -251,7 +246,7 @@
     </div>
 
     <div class="event-details">
-      <div class="detail-item">⏰ <span>Date: <span class="detail-highlight">22nd December, 2025</span></span></div>
+      <div class="detail-item">📅 <span>Date: <span class="detail-highlight">22nd December, 2025</span></span></div>
       <div class="detail-item">⏰ <span>Time: <span class="detail-highlight">4:00 PM Onwards</span></span></div>
       <div class="detail-item">📍 <span>Venue: <span class="detail-highlight">Saint Paul's School, Paharpur Campus</span></span></div>
     </div>
@@ -265,11 +260,11 @@
       for (let i = 0; i < 50; i++) {
         const p = document.createElement('div');
         p.classList.add('particle');
-        p.style.left = ${Math.random() * 100}vw;
-        p.style.animationDelay = ${Math.random() * 15}s;
+        p.style.left = `${Math.random() * 100}vw`;
+        p.style.animationDelay = `${Math.random() * 15}s`;
         const size = Math.random() * 3 + 2;
-        p.style.width = ${size}px;
-        p.style.height = ${size}px;
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
         container.appendChild(p);
       }
     });

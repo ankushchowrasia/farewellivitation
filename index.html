@@ -1,234 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saint Paul's School Farewell Invitation 2025</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
 
   <style>
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
       width: 100vw;
-      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
-            url('https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/f437af8ed79ac3f7f1d1ff368dfcc67c9def381f/websiteankush.jpg') no-repeat center center/cover;
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url('https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/f437af8ed79ac3f7f1d1ff368dfcc67c9def381f/websiteankush.jpg')
+        no-repeat center center/cover;
       background-attachment: fixed;
-      display: block;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-      overflow-y: auto;
-      color: #fff;
       font-family: 'Dancing Script', cursive;
-      padding: 0;
+      color: #fff;
+      overflow-x: hidden;
       text-align: center;
-      position: relative;
     }
 
-    /* Animated particles background */
     .particles {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: 1;
       pointer-events: none;
     }
-
     .particle {
       position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 215, 0, 0.8);
+      width: 4px; height: 4px;
+      background: rgba(255,215,0,0.8);
       border-radius: 50%;
       animation: float 15s infinite ease-in-out;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      box-shadow: 0 0 10px rgba(255,215,0,0.8);
     }
-
     @keyframes float {
-      0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+      0% { transform: translateY(100vh); opacity: 0; }
+      10%,90% { opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
     }
 
-    /* Intro Logo Animation - Background changed to school image */
     .intro-logo-container {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/f437af8ed79ac3f7f1d1ff368dfcc67c9def381f/websiteankush.jpg') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/f437af8ed79ac3f7f1d1ff368dfcc67c9def381f/websiteankush.jpg')
+        no-repeat center center/cover;
+      display: flex; justify-content: center; align-items: center; flex-direction: column;
       z-index: 9999;
       animation: fadeOut 0.8s ease-out 3.5s forwards;
     }
-
     .intro-logo {
       width: clamp(180px, 35vw, 320px);
-      height: auto;
       border-radius: 50%;
-      box-shadow: 0 0 80px rgba(255, 255, 255, 0.6), 0 0 120px rgba(255, 215, 0, 0.4);
+      border: 5px solid rgba(255,255,255,0.3);
+      box-shadow: 0 0 80px rgba(255,255,255,0.6), 0 0 120px rgba(255,215,0,0.4);
       animation: popInOut 3.5s ease-in-out forwards;
-      border: 5px solid rgba(255, 255, 255, 0.3);
     }
-
     .intro-text {
       margin-top: 30px;
       font-family: 'Great Vibes', cursive;
       font-size: clamp(1.5rem, 4vw, 2.8rem);
-      color: #ff0000; /* Changed to red */
+      color: #ff0000;
       opacity: 0;
       animation: fadeInUp 1s ease-out 1s forwards;
-      text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
     }
-
     @keyframes popInOut {
-      0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-      15% { transform: scale(1.15) rotate(0deg); opacity: 1; }
-      25% { transform: scale(1) rotate(0deg); opacity: 1; }
-      75% { transform: scale(1) rotate(0deg); opacity: 1; }
-      85% { transform: scale(1.15) rotate(10deg); opacity: 1; }
-      100% { transform: scale(0) rotate(180deg); opacity: 0; }
+      0% { transform: scale(0); opacity: 0; }
+      20%,80% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
     }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+    @keyframes fadeInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-    @keyframes fadeInUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeOut { 
-      to { opacity: 0; visibility: hidden; pointer-events: none; } 
-    }
-
-    /* Main Content Card */
     .content-card {
       position: relative;
       z-index: 10;
       max-width: 900px;
       width: 90%;
-      margin: 20px auto 40px; /* Added bottom margin */
-      background: rgba(0, 0, 0, 0.7); /* Translucent dark overlay */
+      margin: 60px auto;
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
       border-radius: 30px;
-      padding: clamp(40px, 6vw, 80px) clamp(30px, 5vw, 60px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 100px rgba(255, 215, 0, 0.2);
+      padding: clamp(40px, 6vw, 80px);
+      border: 3px solid rgba(255,215,0,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 100px rgba(255,215,0,0.2);
       opacity: 0;
       transform: translateY(50px) scale(0.9);
       animation: cardFadeIn 1s ease-out 4s forwards;
-      border: 3px solid rgba(255, 215, 0, 0.3);
     }
+    @keyframes cardFadeIn { to { opacity: 1; transform: translateY(0) scale(1); } }
 
-    @keyframes cardFadeIn {
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* School Logos in Corners */
-    .school-logo-left {
-      position: absolute;
-      top: 10px;
-      left: 10px;
+    .school-logo-left, .school-logo-right {
+      position: absolute; top: 10px;
       width: clamp(40px, 8vw, 70px);
-      height: auto;
       border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.4);
-      z-index: 15;
+      box-shadow: 0 0 20px rgba(255,215,0,0.8);
+      border: 3px solid rgba(255,255,255,0.4);
       opacity: 0;
       animation: logoSlideIn 1s ease-out 4.5s forwards;
-      border: 3px solid rgba(255, 255, 255, 0.4);
-    }
-
-    .school-logo-right {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: clamp(40px, 8vw, 70px);
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.4);
       z-index: 15;
-      opacity: 0;
-      animation: logoSlideIn 1s ease-out 4.5s forwards;
-      border: 3px solid rgba(255, 255, 255, 0.4);
     }
-
+    .school-logo-left { left: 10px; }
+    .school-logo-right { right: 10px; }
     @keyframes logoSlideIn {
-      from { transform: scale(0) rotate(-180deg); opacity: 0; }
-      to { transform: scale(1) rotate(0deg); opacity: 1; }
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
-    /* Decorative Corner Elements - Adjusted to avoid overlap */
-    .corner-decoration {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      opacity: 0.15;
-    }
-
-    .corner-decoration.top-left {
-      top: -5px;
-      left: -5px;
-      border-top: 4px solid #ffd700;
-      border-left: 4px solid #ffd700;
-      border-radius: 30px 0 0 0;
-    }
-
-    .corner-decoration.top-right {
-      top: -5px;
-      right: -5px;
-      border-top: 4px solid #ffd700;
-      border-right: 4px solid #ffd700;
-      border-radius: 0 30px 0 0;
-    }
-
-    .corner-decoration.bottom-left {
-      bottom: -5px;
-      left: -5px;
-      border-bottom: 4px solid #ffd700;
-      border-left: 4px solid #ffd700;
-      border-radius: 0 0 0 30px;
-    }
-
-    .corner-decoration.bottom-right {
-      bottom: -5px;
-      right: -5px;
-      border-bottom: 4px solid #ffd700;
-      border-right: 4px solid #ffd700;
-      border-radius: 0 0 30px 0;
-    }
-
-    /* Typography Styles - ALL CALLIGRAPHY */
     .title {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 400;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 15px;
+      margin-top: 60px;
+      margin-bottom: 30px;
+      line-height: 1.4;
       animation: titleGlow 2s ease-in-out infinite;
-      line-height: 1.3;
-      margin-top: 20px;
-      position: relative; /* Added to be on top of logos */
-      z-index: 20;      /* Added to be on top of logos */
+      z-index: 20;
+      position: relative;
     }
-
     @keyframes titleGlow {
-      0%, 100% { filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.4)); }
-      50% { filter: drop-shadow(0 0 18px rgba(102, 126, 234, 0.7)); }
+      0%,100% { filter: drop-shadow(0 0 8px rgba(102,126,234,0.4)); }
+      50% { filter: drop-shadow(0 0 18px rgba(102,126,234,0.7)); }
     }
 
     .emoji-title {
@@ -236,9 +137,8 @@
       display: inline-block;
       animation: bounce 2s infinite;
     }
-
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
 
@@ -248,28 +148,8 @@
       color: #ff6b6b;
       margin-bottom: 25px;
       animation: shimmer 3s infinite;
-      font-weight: 400;
-      position: relative; /* Added to be on top of logos */
-      z-index: 20;      /* Added to be on top of logos */
     }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-
-    .message {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(1rem, 2.5vw, 1.6rem);
-      color: #eee; /* Lightened text color for better contrast on dark background */
-      line-height: 1.9;
-      margin-bottom: 30px;
-      text-align: justify;
-      text-align-last: center;
-      font-weight: 600;
-      position: relative; /* Added to be on top of logos */
-      z-index: 20;      /* Added to be on top of logos */
-    }
+    @keyframes shimmer { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
 
     .divider {
       width: 60%;
@@ -277,212 +157,122 @@
       background: linear-gradient(to right, transparent, #ffd700, transparent);
       margin: 25px auto;
       animation: expandContract 2s infinite;
-      position: relative; /* Added to be on top of logos */
-      z-index: 20;      /* Added to be on top of logos */
     }
-
     @keyframes expandContract {
-      0%, 100% { width: 60%; opacity: 0.6; }
+      0%,100% { width: 60%; opacity: 0.6; }
       50% { width: 80%; opacity: 1; }
     }
 
-    /* Event Details */
-    .event-details {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-      border-radius: 20px;
-      padding: clamp(20px, 4vw, 35px);
-      margin: 30px 0;
-      border: 2px solid rgba(102, 126, 234, 0.2);
-      position: relative; /* Added to be on top of logos */
-      z-index: 20;      /* Added to be on top of logos */
+    .message {
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      color: #eee;
+      line-height: 1.9;
+      margin-bottom: 30px;
+      text-align: justify;
+      text-align-last: center;
     }
 
+    .event-details {
+      background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+      border-radius: 20px;
+      padding: clamp(20px, 4vw, 35px);
+      border: 2px solid rgba(102,126,234,0.2);
+      margin: 30px 0;
+    }
     .detail-item {
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 15px 0;
-      font-family: 'Dancing Script', cursive;
       font-size: clamp(1.1rem, 2.5vw, 1.8rem);
-      color: #fff; /* Lightened text color for better contrast */
+      color: #fff;
       font-weight: 700;
       animation: slideInLeft 0.6s ease-out backwards;
     }
-
-    /* Staggered animation delays for detail items */
-    .detail-item:nth-child(1) { animation-delay: 4.8s; }
-    .detail-item:nth-child(2) { animation-delay: 5.0s; }
-    .detail-item:nth-child(3) { animation-delay: 5.2s; }
-
+    .detail-item:nth-child(1){animation-delay:4.8s;}
+    .detail-item:nth-child(2){animation-delay:5s;}
+    .detail-item:nth-child(3){animation-delay:5.2s;}
     @keyframes slideInLeft {
       from { transform: translateX(-50px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
-
     .detail-icon {
       font-size: clamp(1.5rem, 3vw, 2.2rem);
-      margin-right: 15px;
-      /* Removing the spin animation as it can be distracting */
-      /* animation: spin 3s linear infinite; */
+      margin-right: 10px;
       color: #667eea;
     }
+    .detail-highlight { color: #ffde54; }
 
-    .detail-text {
-      font-family: 'Dancing Script', cursive;
-    }
-
-    .detail-highlight {
-      color: #ffde54; /* Adjusted highlight color for better contrast on dark */
-      font-weight: 700;
-    }
-
-    /* Footer Message */
     .footer-message {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(1.2rem, 3vw, 2.2rem);
       color: #ff6b6b;
       margin-top: 30px;
       animation: fadeInUp 1s ease-out 5.4s backwards;
-      font-weight: 400;
-      position: relative; /* Added to be on top of logos */
-      z-index: 20;      /* Added to be on top of logos */
     }
-
     .heart-icon {
-      display: inline-block;
-      color: #ffd700; /* Changed heart to gold */
+      color: #ffd700;
       animation: heartbeat 1.5s infinite;
     }
-
     @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      10%, 30% { transform: scale(1.3); }
-      20%, 40% { transform: scale(1); }
+      0%,100% { transform: scale(1); }
+      20%,40% { transform: scale(1.3); }
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
-      .content-card { 
-        margin-top: 10px; 
-        padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px); 
-        border-radius: 20px; 
-      }
-      .school-logo-left {
-        left: 5px; 
-      }
-      .school-logo-right {
-        right: 5px; 
-      }
-      .school-logo-left, .school-logo-right { 
-        width: clamp(40px, 8vw, 60px); /* Increased size for tablets */
-        top: 5px; 
-      }
-      .title { 
-        font-size: clamp(1.8rem, 4vw, 3.5rem); 
-        margin-top: 15px; 
-      }
-      .corner-decoration { width: 50px; height: 50px; }
-      .event-details { padding: clamp(15px, 3vw, 25px); }
+      .title { margin-top: 40px; margin-bottom: 35px; line-height: 1.3; }
+      .school-logo-left, .school-logo-right { width: clamp(45px, 10vw, 65px); top: 5px; }
       .detail-item { flex-direction: column; text-align: center; }
-      .detail-icon { margin-right: 0; margin-bottom: 8px; }
     }
-
     @media (max-width: 480px) {
-      .content-card { 
-        margin-top: 5px; 
-        padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px); 
-      }
-      .school-logo-left, .school-logo-right { 
-        width: clamp(35px, 10vw, 50px); /* Increased size for mobile */
-        top: 5px; 
-      }
-      .school-logo-left { left: 5px; }
-      .school-logo-right { right: 5px; }
-      .title { 
-        font-size: clamp(1.5rem, 3.5vw, 3rem); 
-        margin-top: 10px; 
-      }
+      .title { margin-top: 35px; margin-bottom: 25px; font-size: clamp(2rem, 8vw, 3rem); }
       .message { text-align: center; }
     }
   </style>
 </head>
 <body>
-  <!-- Animated Particles --><div class="particles" id="particles"></div>
+  <div class="particles" id="particles"></div>
 
-  <!-- Intro Logo Screen --><div class="intro-logo-container">
-    <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" alt="Saint Paul's School" class="intro-logo">
+  <div class="intro-logo-container">
+    <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" class="intro-logo" alt="School Logo">
     <div class="intro-text">Saint Paul's School</div>
   </div>
 
-  <!-- Main Content Card --><div class="content-card">
-    <!-- School Logos in Corners --><img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" alt="School Logo Left" class="school-logo-left">
-    <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" alt="School Logo Right" class="school-logo-right">
+  <div class="content-card">
+    <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" class="school-logo-left" alt="Left Logo">
+    <img src="https://raw.githubusercontent.com/ankushchowrasia/ankushchowrasia/54e3d067aa543a7ccef09566b2435a7e8c059f3c/school%20logo.png" class="school-logo-right" alt="Right Logo">
 
-    <div class="corner-decoration top-left"></div>
-    <div class="corner-decoration top-right"></div>
-    <div class="corner-decoration bottom-left"></div>
-    <div class="corner-decoration bottom-right"></div>
-
-    <div class="title">
-      <span class="emoji-title">🎓</span>
-      Farewell Celebration 2025
-      <span class="emoji-title">🎓</span>
-    </div>
-
-    <div class="subtitle">
-      <span class="emoji-title">🌟</span> Dear Seniors <span class="emoji-title">🌟</span>
-    </div>
-
+    <div class="title">Farewell Celebration</div>
+    <div class="subtitle">🌟 Dear Seniors 🌟</div>
     <div class="divider"></div>
 
-    <!-- Completed invitation message --><div class="message">
+    <div class="message">
       Dear Seniors, we warmly invite you to an evening of memories, laughter, and celebration 🎉 as we bid farewell to you all. Let us come together to cherish the journey, honor the bonds we've shared, and welcome a new beginning with smiles and gratitude. 😊
     </div>
 
-    <!-- Event Details Section --><div class="event-details">
-      <div class="detail-item">
-        <span class="detail-icon">🗓️</span>
-        <span class="detail-text">Date: <span class="detail-highlight">22nd December, 2025</span></span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-icon">⏰</span>
-        <span class="detail-text">Time: <span class="detail-highlight">4:00 PM Onwards</span></span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-icon">📍</span>
-        <span class="detail-text">Venue: <span class="detail-highlight">Saint Paul's School, Paharpur Campus</span></span>
-      </div>
+    <div class="event-details">
+      <div class="detail-item">🗓 <span>Date: <span class="detail-highlight">22nd December, 2025</span></span></div>
+      <div class="detail-item">⏰ <span>Time: <span class="detail-highlight">4:00 PM Onwards</span></span></div>
+      <div class="detail-item">📍 <span>Venue: <span class="detail-highlight">Saint Paul's School, Paharpur Campus</span></span></div>
     </div>
 
-    <!-- Footer Message --><div class="footer-message">
-      With best wishes from your juniors!
-      <span class="heart-icon">❤️</span>
-    </div>
+    <div class="footer-message">With best wishes from your juniors! <span class="heart-icon">❤</span></div>
+  </div>
 
-  </div> <!-- End of content-card --><script>
-    // JavaScript to create and animate particles
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 50; // Number of particles
-
-      for (let i = 0; i < particleCount; i++) {
-        let particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Randomize position and animation delay
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.animationDelay = `${Math.random() * 15}s`;
-        
-        // Randomize size
-        let size = Math.random() * 3 + 2; // Size between 2px and 5px
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-
-        particlesContainer.appendChild(particle);
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        p.style.left = ${Math.random() * 100}vw;
+        p.style.animationDelay = ${Math.random() * 15}s;
+        const size = Math.random() * 3 + 2;
+        p.style.width = ${size}px;
+        p.style.height = ${size}px;
+        container.appendChild(p);
       }
     });
   </script>
-
 </body>
 </html>
-

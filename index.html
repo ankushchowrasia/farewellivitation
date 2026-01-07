@@ -172,8 +172,16 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            animation: introFadeOut 1.5s ease-out 8.5s forwards;
+            padding: 20px;
+            /* animation: introFadeOut 1.5s ease-out 8.5s forwards; <- Removed for JS control */
             will-change: opacity, visibility;
+            transition: opacity 1.5s ease-out, visibility 1.5s ease-out;
+        }
+
+        .cinematic-intro.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
         @keyframes introFadeOut {
@@ -248,6 +256,20 @@
             animation: textReveal 1.5s ease-out 5s forwards;
             text-align: center;
             text-shadow: 0 0 10px rgba(74, 158, 255, 0.4);
+            z-index: 10001;
+            /* Ensure on top */
+        }
+
+        @media (max-width: 768px) {
+            .intro-sub-tagline {
+                font-size: 1.2rem;
+                /* Enforce readable size on mobile */
+                letter-spacing: 2px;
+                width: 90%;
+                /* Prevent overflow */
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         /* Ensure Main Card SPS Logo is styled */
@@ -327,10 +349,49 @@
             text-align: center;
         }
 
+        .intro-sub-tagline {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+            color: #4a9eff;
+            /* Blue */
+            margin-top: 15px;
+            opacity: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            /* Start earlier (4s) and last longer */
+            animation: fadeInOut 4s ease-in-out 4s forwards;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(74, 158, 255, 0.4);
+            z-index: 10001;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                letter-spacing: 4px;
+            }
+
+            15% {
+                opacity: 1;
+                letter-spacing: 2px;
+            }
+
+            90% {
+                opacity: 1;
+                letter-spacing: 2px;
+            }
+
+            100% {
+                opacity: 0;
+                letter-spacing: 4px;
+            }
+        }
+
         @keyframes textReveal {
             from {
                 opacity: 0;
-                letter-spacing: 15px;
+                letter-spacing: 5px;
+                /* Reduced from 15px for mobile safety */
             }
 
             to {
@@ -1243,7 +1304,9 @@
             }
 
             .cinematic-intro {
-                display: none;
+                /* display: none;  <-- DON'T HIDE, just reduce motion */
+                opacity: 0;
+                animation: introFadeOut 0s linear 8.5s forwards;
             }
 
             .main {
@@ -1345,6 +1408,53 @@
         .school-logo {
             pointer-events: none;
         }
+
+        /* ===== MOBILE SAFE MODE FIX ===== */
+        @media (max-width: 768px) {
+            .cinematic-intro {
+                justify-content: center;
+                overflow: hidden; /* Prevent scrollbars */
+                padding: 10px;
+                height: 100dvh; /* Force full height */
+            }
+
+            .intro-logo-wrapper {
+                margin-bottom: 0; /* Remove gap */
+            }
+
+            .intro-logo {
+                width: clamp(120px, 45vw, 180px);
+                max-height: 35vh; /* Prevent logo from eating all vertical space */
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+
+            .studio-presents {
+                margin-bottom: 5px;
+                font-size: 0.7rem;
+                margin-top: auto; /* Push down slightly if space allows */
+            }
+
+            .intro-school-name {
+                margin-top: 5px;
+                font-size: 1.4rem;
+                line-height: 1.2;
+            }
+
+            .intro-tagline {
+                margin-top: 2px;
+                font-size: 1rem;
+            }
+            
+            .intro-sub-tagline {
+                margin-top: 8px;
+                margin-bottom: auto; /* Allow centering balance */
+                font-size: 0.9rem;
+                width: 100%;
+                letter-spacing: 1px;
+                font-weight: 600; /* Bold to make it pop more on small screens */
+            }
+        }
     </style>
 </head>
 
@@ -1381,7 +1491,7 @@
         </div>
         <div class="intro-school-name">Mnemosyne</div>
         <div class="intro-tagline">Farewell Celebration 2026</div>
-        <div class="intro-sub-tagline">Saint Paul's School</div>
+        <div class="intro-sub-tagline">SAINT PAUL'S SCHOOL</div>
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
@@ -1535,6 +1645,27 @@
             'use strict';
 
             const isMobile = window.innerWidth <= 768;
+
+            // Preloader Logic: Wait for Load + Min Time
+            const introElement = document.querySelector('.cinematic-intro');
+            const minDisplayTime = 8000; // 8 seconds minimum for animation to finish
+            const startTime = Date.now();
+
+            function dismissPreloader() {
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+
+                setTimeout(() => {
+                    introElement.classList.add('fade-out');
+                }, remainingTime);
+            }
+
+            window.addEventListener('load', dismissPreloader);
+
+            // Fallback in case load event hangs
+            setTimeout(dismissPreloader, 10000);
+
+
 
             // Create dust particles (fewer on mobile)
             const dustContainer = document.getElementById('dustContainer');
